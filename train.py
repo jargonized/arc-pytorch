@@ -94,8 +94,8 @@ def train():
             pred_val = discriminator(X_val)
             loss_val = bce(pred_val, Y_val.float())
 
-            training_loss = loss.data[0]
-            validation_loss = loss_val.data[0]
+            training_loss = loss.data.item()
+            validation_loss = loss_val.data.iten()
 
             print("Iteration: {} \t Train: Acc={}%, Loss={} \t\t Validation: Acc={}%, Loss={}".format(
                 i, get_pct_accuracy(pred, Y), training_loss, get_pct_accuracy(pred_val, Y_val), validation_loss
