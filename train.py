@@ -26,7 +26,7 @@ parser.add_argument('--load', default=None, help='the model to load from. Start 
 def get_pct_accuracy(pred: Variable, target) -> int:
     hard_pred = (pred > 0.5).int()
     correct = (hard_pred == target).sum().data.item()
-    accuracy = float(correct) / target.size().item()
+    accuracy = float(correct) / target.size[0]
     accuracy = int(accuracy * 100)
     return accuracy
 
